@@ -19,38 +19,39 @@ preguntas = encuesta.n_encuesta['preguntas']
 def ingresar_pregunta():
     continuar = 'si'
     if continuar == 'si':
-        pregunta_respuestas = []            
-       
+        pregunta_respuestas = []
         for nueva_respuesta in range(4):
             nueva_respuesta = 'si'
             pregunta  = input("Ingrese Pregunta:\n")
             respuestas = []
             while nueva_respuesta == 'si':
                 respuestas.append(input("ingrese su respuesta:\n"))                            
-                nueva_respuesta = input("Desea ingresar otra respuesta?:")
+                nueva_respuesta = input("Desea ingresar otra respuesta?:\n")
                 nueva_pregunta = {}
-                nueva_pregunta[pregunta] = respuestas
-                print(pregunta_respuestas)
-            
+                nueva_pregunta[pregunta] = respuestas            
             pregunta_respuestas.append(nueva_pregunta)
-            continuar = input("ingrear nueva pregunta?")
+            continuar = input("ingresar nueva pregunta?\n")
             if continuar == "no":
                 encuesta.n_encuesta['preguntas'] = pregunta_respuestas
-                print(nueva_pregunta)
                 break
-            
-            
-            
-    
 
-encuesta.n_encuesta['titulo'] = input("Ingrese un titulo:\n")
-encuesta.n_encuesta['grupo'] = input("Ingrese un grupo:\n")
-encuesta.n_encuesta['vencimiento'] = input("Ingrese un vencimiento:\n")
+def nueva_encuesta():
+    encuesta.n_encuesta['titulo'] = input("Ingrese un titulo:\n")
+    encuesta.n_encuesta['grupo'] = input("Ingrese un grupo:\n")
+    encuesta.n_encuesta['vencimiento'] = input("Ingrese un vencimiento:\n")
+    ingresar_pregunta()
 
-ingresar_pregunta()
+agregar_encuesta = input("Desea crear una nueva encuesta?\n")
+
+while agregar_encuesta == "si":    
+    nueva_encuesta()
+    agregar_encuesta = input("Desea crear una nueva encuesta?\n")
+    listadoEncuestas.append(encuesta.n_encuesta)
+else:
+    print("\nGracias por crear una nueva encuesta")
 
 
 
+listadoEncuestas.append(encuesta.n_encuesta)
 
-
-print(encuesta.n_encuesta)
+print(listadoEncuestas)
