@@ -14,22 +14,22 @@ class Encuesta:
 
     def ingresar_pregunta(self):
         continuar = 'si'
-        if continuar == 'si':
+        while continuar == 'si':
             pregunta_respuestas = []
-            for nueva_respuesta in range(2):
-                nueva_respuesta = 'si'
-                pregunta  = input("Ingrese Pregunta:\n")
-                respuestas = []            
-                while nueva_respuesta == 'si':
-                    respuestas.append(input("ingrese su respuesta:\n"))                            
-                    nueva_respuesta = input("Desea ingresar otra respuesta?:\n")
-                    nueva_pregunta = {}
-                    nueva_pregunta[pregunta] = respuestas            
-                pregunta_respuestas.append(nueva_pregunta)
-                continuar = input("ingresar nueva pregunta?\n")
-                if continuar == "no":
-                    encuesta.n_encuesta['preguntas'] = pregunta_respuestas
-                    break
+            pregunta  = input("Ingrese Pregunta:\n")
+            nueva_respuesta = "si"
+            respuestas = []       
+            indice = 1     
+            while nueva_respuesta == 'si' and indice < 4:
+                respuestas.append(input("ingrese su respuesta:\n"))                            
+                nueva_respuesta = input("Desea ingresar otra respuesta?:\n")
+                nueva_pregunta = {}
+                nueva_pregunta[pregunta] = respuestas
+                indice = indice + 1           
+            pregunta_respuestas.append(nueva_pregunta)
+            continuar = input("ingresar nueva pregunta?\n")
+            encuesta.n_encuesta['preguntas'] = pregunta_respuestas
+
 
 encuesta = Encuesta()
 
