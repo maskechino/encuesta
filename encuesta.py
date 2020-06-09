@@ -15,8 +15,7 @@ class Encuesta:
     def ingresar_pregunta(self):
         continuar = 'si'
         pregunta_respuestas = []
-        while continuar == 'si':
-            
+        while continuar == 'si':            
             pregunta  = input("Ingrese Pregunta:\n")
             nueva_respuesta = "si"
             respuestas = []       
@@ -34,10 +33,6 @@ class Encuesta:
 
 encuesta = Encuesta()
 
-preguntas = encuesta.n_encuesta['preguntas']
-
-
-
 def nueva_encuesta():
     encuesta.n_encuesta['titulo'] = input("Ingrese un titulo:\n")
     encuesta.n_encuesta['grupo'] = input("Ingrese un grupo:\n")
@@ -52,8 +47,5 @@ while agregar_encuesta == "si":
     listadoEncuestas.append(encuesta.n_encuesta)
 else:
     print("\nGracias por crear una nueva encuesta\n")
-
-
-listadoEncuestas.append(encuesta.n_encuesta)
 
 print(listadoEncuestas)
